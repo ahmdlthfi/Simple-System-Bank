@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Bank Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #004e92;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            background-color: #eee;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .nav a {
+            margin: 0 15px;
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav a:hover {
+            color: #004e92;
+        }
+
+        .form-section {
+            display: none; /* Sembunyikan semua bagian secara default */
+            margin-top: 20px;
+        }
+
+        .form-section.active {
+            display: block; /* Tampilkan bagian yang aktif */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group button {
+            background-color: #004e92;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #003366;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #004e92;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Sistem Bank Sederhana</h1>
+        <p>Selamat Datang di Bank SIX</p>
+    </div>
+
+    <div class="container">
+        <div class="nav">
+            <a onclick="showSection('login')">Login</a>
+            <a onclick="showSection('cek-saldo')">Cek Saldo</a>
+            <a onclick="showSection('transfer-uang')">Transfer Uang</a>
+            <a onclick="showSection('riwayat-transaksi')">Riwayat Transaksi</a>
+        </div>
+
+        <!-- Bagian Login -->
+        <div id="login" class="form-section active">
+            <h2>Login ke Akun Anda</h2>
+            <form>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bagian Cek Saldo -->
+        <div id="cek-saldo" class="form-section">
+            <h2>Cek Saldo Anda</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nomor-rekening-saldo">Nomor Rekening:</label>
+                    <input type="text" id="nomor-rekening-saldo" name="nomor-rekening-saldo" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Cek Saldo</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bagian Transfer Uang -->
+        <div id="transfer-uang" class="form-section">
+            <h2>Transfer Uang</h2>
+            <form>
+                <div class="form-group">
+                    <label for="rekening-sumber">Nomor Rekening Pengirim:</label>
+                    <input type="text" id="rekening-sumber" name="rekening-sumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="rekening-tujuan">Nomor Rekening Tujuan:</label>
+                    <input type="text" id="rekening-tujuan" name="rekening-tujuan" required>
+                </div>
+                <div class="form-group">
+                    <label for="jumlah-transfer">Jumlah Transfer:</label>
+                    <input type="number" id="jumlah-transfer" name="jumlah-transfer" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Transfer</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bagian Riwayat Transaksi -->
+        <div id="riwayat-transaksi" class="form-section">
+            <h2>Riwayat Transaksi</h2>
+            <p>Fitur ini belum tersedia. Silakan cek kembali nanti.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Bank SIX. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Sembunyikan semua section
+            const sections = document.querySelectorAll('.form-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Tampilkan section yang dipilih
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
